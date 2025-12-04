@@ -2,7 +2,7 @@
 #define OBSERVER_HPP
 
 #include <fstream>
-#include "./npc.hpp"
+#include "../npc/npc.hpp"
 #include "./editor.hpp"
 
 class Observer {

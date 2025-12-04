@@ -1,4 +1,4 @@
-#include "../include/npc.hpp"
+#include "../../include/npc/npc.hpp"
 #include <string>
 #include <cmath>
 

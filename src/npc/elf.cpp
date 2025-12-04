@@ -1,5 +1,5 @@
-#include "../include/npc.hpp"
-#include "../include/elf.hpp"
+#include "../../include/npc/npc.hpp"
+#include "../../include/npc/elf.hpp"
 
 Elf::Elf(): NPC(NPCType::ELF) {}
 

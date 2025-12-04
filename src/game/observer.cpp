@@ -1,4 +1,4 @@
-#include "../include/observer.hpp"
+#include "../../include/game/observer.hpp"
 #include <iostream>
 
 void ScreenObserver::printKill(const NPC &killer, const NPC &victim) {

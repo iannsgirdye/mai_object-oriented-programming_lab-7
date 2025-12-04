@@ -1,7 +1,7 @@
 #ifndef VISITOR_HPP
 #define VISITOR_HPP
 
-#include "./npc.hpp"
+#include "../npc/npc.hpp"
 #include "./observer.hpp"
 #include <set>
 #include <vector>

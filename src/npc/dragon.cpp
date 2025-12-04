@@ -1,5 +1,5 @@
-#include "../include/npc.hpp"
-#include "../include/dragon.hpp"
+#include "../../include/npc/npc.hpp"
+#include "../../include/npc/dragon.hpp"
 
 Dragon::Dragon(): NPC(NPCType::DRAGON) {}
 

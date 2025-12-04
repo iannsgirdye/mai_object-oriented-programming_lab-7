@@ -1,7 +1,7 @@
 #ifndef FACTORY_HPP
 #define FACTORY_HPP
 
-#include "./npc.hpp"
+#include "../npc/npc.hpp"
 #include <memory>
 #include <string>
 #include <fstream>

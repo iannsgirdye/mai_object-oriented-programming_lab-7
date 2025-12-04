@@ -1,7 +1,7 @@
-#include "../include/factory.hpp"
-#include "../include/knight.hpp"
-#include "../include/elf.hpp"
-#include "../include/dragon.hpp"
+#include "../../include/game/factory.hpp"
+#include "../../include/npc/knight.hpp"
+#include "../../include/npc/elf.hpp"
+#include "../../include/npc/dragon.hpp"
 #include <stdexcept>
 
 #define MIN_X 0

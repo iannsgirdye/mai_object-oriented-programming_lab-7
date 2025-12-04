@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <memory>
-#include "./npc.hpp"
+#include "../npc/npc.hpp"
 #include "./factory.hpp"
 #include "./observer.hpp"
 #include "./visitor.hpp"

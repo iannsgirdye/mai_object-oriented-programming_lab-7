@@ -1,5 +1,5 @@
-#include "../include/npc.hpp"
-#include "../include/knight.hpp"
+#include "../../include/npc/npc.hpp"
+#include "../../include/npc/knight.hpp"
 
 Knight::Knight(): NPC(NPCType::KNIGHT) {}
 

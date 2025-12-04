@@ -1,4 +1,4 @@
-#include "../include/visitor.hpp"
+#include "../../include/game/visitor.hpp"
 
 Visitor::Visitor(std::vector<std::unique_ptr<NPC>> &NPCs, std::vector<Observer *> &observers, double range): 
   NPCs_(NPCs), observers_(observers), range_(range) {}

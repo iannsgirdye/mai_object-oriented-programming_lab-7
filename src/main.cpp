@@ -1,4 +1,4 @@
-#include "../include/editor.hpp"
+#include "../include/game/editor.hpp"
 #include <iostream>
 #include <string>
 

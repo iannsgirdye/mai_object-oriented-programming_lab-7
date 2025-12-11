@@ -89,3 +89,12 @@ void Editor::battle(const std::string &name, double range) {
 
   throw std::invalid_argument("Персонажа с таким именем не существует");
 }
+
+void Editor::move(const std::string &name, MoveDirection direction) const {
+  for (size_t i = 0; i != NPCs_.size(); ++i) {
+    if (NPCs_[i]->getName() == name) {
+      NPCs_[i]->move(direction);
+      return;
+    }
+  }
+}

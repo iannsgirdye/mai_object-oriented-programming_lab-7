@@ -26,6 +26,7 @@ class Editor {
     void addNPC(const std::string &type, double x, double y, const std::string &name);
     void printNPCs() const;
     void battle(const std::string &name, double range);
+    void move(const std::string &name, MoveDirection direction) const;
 };
 
 #endif

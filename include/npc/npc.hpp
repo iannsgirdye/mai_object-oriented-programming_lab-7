@@ -14,6 +14,13 @@ enum NPCType {
   DRAGON = 3
 };
 
+enum MoveDirection {
+  TOP,
+  RIGHT,
+  BOTTOM,
+  LEFT
+};
+
 class NPC {
   protected:
     NPCType type_;
@@ -34,6 +41,7 @@ class NPC {
     bool isAlive() const;
 
     void setAlive(bool alive);
+    void move(MoveDirection direction);
     
     bool canKill(const NPC &other) const;
     double distance(const NPC &other) const;

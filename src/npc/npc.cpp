@@ -87,17 +87,23 @@ void NPC::load(std::ifstream &in) {
 }
 
 void NPC::save(std::ofstream &out) const {
+  if (!isAlive()) {
+    return;
+  }
+
   out << getTypeString() << " "
       << name_ << " "
       << x_ << " "
-      << y_ << std::endl;
+      << y_ << " "
+      << isAlive();
 }
 
 void NPC::save() const {
   std::cout << getTypeString() << " " 
             << name_ << " "
             << x_ << " "
-            << y_ << std::endl;
+            << y_ << " "
+            << isAlive();
 }
 
 double NPC::distance(const NPC &other) const {

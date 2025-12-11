@@ -16,6 +16,8 @@ Editor::~Editor() {
 }
 
 void Editor::initBaseNPCs() {
+  NPCs_.reserve(COUNT_BASE_NPCS);
+
   NPCType type;
   double x;
   double y;

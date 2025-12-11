@@ -64,6 +64,10 @@ void NPC::move(MoveDirection direction) {
 }
 
 bool NPC::canKill(const NPC &other) const {
+  if (!isAlive() || !other.isAlive()) {
+    return false;
+  }
+
   std::array<double, 4> killDistances = {0.0, 10.0, 50.0, 30.0};
   double thisKillDistance = killDistances[static_cast<int>(getType())];
   if (distance(other) <= thisKillDistance) {

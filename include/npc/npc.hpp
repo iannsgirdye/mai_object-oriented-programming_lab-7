@@ -28,6 +28,7 @@ class NPC {
     double y_ = 0;
     std::string name_ = "";
     bool alive_ = true;
+    
   public:
     NPC();
     NPC(NPCType type);

@@ -2,12 +2,8 @@
 #include "../../include/npc/knight.hpp"
 #include "../../include/npc/elf.hpp"
 #include "../../include/npc/dragon.hpp"
+#include "../../include/values.hpp"
 #include <stdexcept>
-
-#define MIN_X 0
-#define MAX_X 500
-#define MIN_Y 0
-#define MAX_Y 500
 
 std::unique_ptr<NPC> Factory::createNPC(NPCType type) {
   return createNPC(type, MIN_X, MIN_Y, "");

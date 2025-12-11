@@ -21,6 +21,7 @@ class Editor {
     
     void loadFromFile(const std::string &fileName);
     void saveToFile(const std::string &fileName);
+    void addNPC(NPCType type, double x, double y, const std::string &name);
     void addNPC(const std::string &type, double x, double y, const std::string &name);
     void printNPCs() const;
     void battle(const std::string &name, double range);

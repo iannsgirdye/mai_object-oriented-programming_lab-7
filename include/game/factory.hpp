@@ -8,8 +8,8 @@
 
 class Factory {
   public:
-    static std::unique_ptr<NPC> createNPC(const std::string &type);
-    static std::unique_ptr<NPC> createNPC(const std::string &type, double x, double y, const std::string &name);
+    static std::unique_ptr<NPC> createNPC(NPCType type);
+    static std::unique_ptr<NPC> createNPC(NPCType type, double x, double y, const std::string &name);
     static std::unique_ptr<NPC> loadNPCFromFile(std::ifstream &file);
 };
 

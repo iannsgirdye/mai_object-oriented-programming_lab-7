@@ -28,8 +28,12 @@ void Editor::loadFromFile(const std::string &fileName) {
   in.close();
 }
 
-void Editor::addNPC(const std::string &type, double x, double y, const std::string &name) {
+void Editor::addNPC(NPCType type, double x, double y, const std::string &name) {
   NPCs_.push_back(Factory::createNPC(type, x, y, name));
+}
+
+void Editor::addNPC(const std::string &type, double x, double y, const std::string &name) {
+  addNPC(convertTypeFromString(type), x, y, name);
 }
 
 void Editor::saveToFile(const std::string &fileName) {

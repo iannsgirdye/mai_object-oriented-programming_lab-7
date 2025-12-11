@@ -1,6 +1,13 @@
 #include "../../include/npc/npc.hpp"
 #include <string>
 #include <cmath>
+#include <array>
+#include <algorithm>
+
+#define MIN_X 0.0
+#define MAX_X 1000.0
+#define MIN_Y 0.0
+#define MAX_Y 1000.0
 
 NPC::NPC(): type_(NPCType::UNKNOWN) {}
 
@@ -39,6 +46,21 @@ bool NPC::isAlive() const {
 
 void NPC::setAlive(bool alive) {
   alive_ = alive;
+}
+
+void NPC::move(MoveDirection direction) {
+  if (!isAlive()) {
+    return;
+  }
+
+  std::array<double, 4> moveDistances = {0.0, 30.0, 10.0, 50.0};
+  double thisMoveDistance = moveDistances[static_cast<int>(getType())];
+  switch (direction) {
+    case MoveDirection::TOP: y_ = std::clamp(MIN_Y, y_ + thisMoveDistance, MAX_Y); break;
+    case MoveDirection::RIGHT: x_ = std::clamp(MIN_X, x_ + thisMoveDistance, MAX_X); break;
+    case MoveDirection::BOTTOM: y_ = std::clamp(MIN_Y, y_ - thisMoveDistance, MAX_Y); break;
+    case MoveDirection::LEFT: x_ = std::clamp(MIN_X, x_ - thisMoveDistance, MAX_X); break;
+  }
 }
 
 bool NPC::canKill(const NPC &other) const {

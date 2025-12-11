@@ -1,6 +1,8 @@
 #include "../../include/game/editor.hpp"
+#include "../values.hpp"
 #include <fstream>
 #include <string>
+#include <random>
 
 Editor::Editor() {
   observers_.push_back(new ScreenObserver());
@@ -10,6 +12,26 @@ Editor::Editor() {
 Editor::~Editor() {
   for (size_t i = 0; i != observers_.size(); ++i) {
     delete observers_[i];
+  }
+}
+
+void Editor::initBaseNPCs() {
+  NPCType type;
+  double x;
+  double y;
+  std::string name;
+
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_real_distribution<double> x_dist(MIN_X, MAX_X);
+  std::uniform_real_distribution<double> y_dist(MIN_Y, MAX_Y);
+
+  for (size_t i = 0; i != COUNT_BASE_NPCS; ++i) {
+    type = static_cast<NPCType>(1 + (i % 3));
+    x = x_dist(gen);
+    y = y_dist(gen);
+    name = "BaseNPC_" + std::to_string(i + 1);
+    addNPC(type, MIN_X, MIN_Y, name);
   }
 }
 

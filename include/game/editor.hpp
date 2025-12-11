@@ -19,6 +19,7 @@ class Editor {
     Editor();
     ~Editor();
     
+    void initBaseNPCs();
     void loadFromFile(const std::string &fileName);
     void saveToFile(const std::string &fileName);
     void addNPC(NPCType type, double x, double y, const std::string &name);

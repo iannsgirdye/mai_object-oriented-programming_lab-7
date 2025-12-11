@@ -8,10 +8,9 @@
 #include <memory>
 
 enum FightResult {
-  NO_KILLED = 0,
-  FIRST_KILLED = 1,
-  SECOND_KILLED = 2,
-  BOTH_KILLED = 3
+  FIRST_WON,
+  SECOND_WON,
+  DRAW
 };
 
 class Observer;

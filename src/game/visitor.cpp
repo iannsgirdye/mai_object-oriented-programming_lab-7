@@ -1,19 +1,24 @@
 #include "../../include/game/visitor.hpp"
+#include <random>
 
 Visitor::Visitor(std::vector<std::unique_ptr<NPC>> &NPCs, std::vector<Observer *> &observers, double range): 
   NPCs_(NPCs), observers_(observers), range_(range) {}
 
 FightResult Visitor::fight(NPC &first, NPC &second) const {
-  if (first.canKill(second) && second.canKill(first)) {
-    return FightResult::BOTH_KILLED;
+  std::random_device rd;
+  std::mt19937 gen(rd());
+  std::uniform_int_distribution<int> dice(1, 6);
+
+  int firstPower = dice(gen);
+  int secondPower = dice(gen);
+
+  if (first.canKill(second) && firstPower > secondPower) {
+    return FightResult::FIRST_WON;
   }
-  if (first.canKill(second)) {
-    return FightResult::SECOND_KILLED;
+  if (second.canKill(first) && secondPower > firstPower) {
+    return FightResult::SECOND_WON;
   }
-  if (second.canKill(first)) {
-    return FightResult::FIRST_KILLED;
-  }
-  return FightResult::NO_KILLED;
+  return FightResult::DRAW;
 }
 
 void Visitor::visit(NPC &attacker) {
@@ -49,21 +54,15 @@ void Visitor::visit(NPC &attacker) {
     }
     
     switch (fight(attacker, defender)) {
-      case BOTH_KILLED:
-        notifyKill(attacker, defender);
-        notifyKill(defender, attacker);
-        attacker.setAlive(false);
-        defender.setAlive(false);
-        return;
-      case FightResult::SECOND_KILLED:
+      case FightResult::FIRST_WON:
         notifyKill(attacker, defender);
         defender.setAlive(false);
         break;
-      case FightResult::FIRST_KILLED:
+      case FightResult::SECOND_WON:
         notifyKill(defender, attacker);
         attacker.setAlive(false);
         return;
-      case FightResult::NO_KILLED:
+      case FightResult::DRAW:
         break;
     }
   }

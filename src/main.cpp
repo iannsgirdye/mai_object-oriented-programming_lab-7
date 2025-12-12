@@ -4,16 +4,17 @@
 
 void showMenu() {
   std::cout << "\n===> МЕНЮ <===\n";
-  std::cout << "1. Добавить Странствующего рыцаря\n";
-  std::cout << "2. Добавить Эльфа\n";
-  std::cout << "3. Добавить Дракона\n";
-  std::cout << "4. Показать всех NPC\n";
-  std::cout << "5. Сохранить в файл\n";
-  std::cout << "6. Загрузить из файла\n";
-  std::cout << "7. Запустить бой\n";
-  std::cout << "8. Переместить персонажа\n";
-  std::cout << "9. Показать меню\n";
-  std::cout << "0. Выход\n";
+  std::cout << " 1. Добавить Странствующего рыцаря\n";
+  std::cout << " 2. Добавить Эльфа\n";
+  std::cout << " 3. Добавить Дракона\n";
+  std::cout << " 4. Показать конкретный NPC\n";
+  std::cout << " 5. Показать всех NPC\n";
+  std::cout << " 6. Сохранить в файл\n";
+  std::cout << " 7. Загрузить из файла\n";
+  std::cout << " 8. Запустить бой\n";
+  std::cout << " 9. Переместить персонажа\n";
+  std::cout << "10. Показать меню\n";
+  std::cout << " 0. Выход\n";
 }
 
 void mode1(Editor &editor) {
@@ -65,24 +66,31 @@ void mode3(Editor &editor) {
 }
 
 void mode4(Editor &editor) {
-  editor.printNPCs();
+  std::string name;
+  std::cout << "Имя персонажа: ";
+  std::cin >> name;
+  editor.printNPC(name);
 }
 
 void mode5(Editor &editor) {
+  editor.printNPCs();
+}
+
+void mode6(Editor &editor) {
   std::string filename;
   std::cout << "Имя файла для сохранения: ";
   std::cin >> filename;
   editor.saveToFile(filename);
 }
 
-void mode6(Editor &editor) {
+void mode7(Editor &editor) {
   std::string filename;
   std::cout << "Имя файла для загрузки: ";
   std::cin >> filename;
   editor.loadFromFile(filename);
 }
 
-void mode7(Editor &editor) {
+void mode8(Editor &editor) {
   std::string name;
   double range;
   std::cout << "Имя персонажа: ";
@@ -92,7 +100,7 @@ void mode7(Editor &editor) {
   editor.battle(name, range);
 }
 
-void mode8(Editor &editor) {
+void mode9(Editor &editor) {
   std::string name;
   std::string direction;
   std::cout << "Имя персонажа: ";
@@ -135,7 +143,8 @@ int main() {
         case 6: mode6(editor); break;
         case 7: mode7(editor); break;
         case 8: mode8(editor); break;
-        case 9: showMenu(); break;
+        case 9: mode9(editor); break;
+        case 10: showMenu(); break;
         case 0: modeExit(); break;
         default: modeError(); break;
       }

@@ -30,6 +30,7 @@ class Editor {
     void printAreAliveNPCs() const;
     void printNPCs() const;
     void detectBattles();
+    void processBattles();
     void move(const std::string &name, MoveDirection direction) const;
     void moveNPCs(std::mt19937 &random);
 };

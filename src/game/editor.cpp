@@ -107,6 +107,15 @@ void Editor::detectBattles() {
   }
 }
 
+void Editor::processBattles() {
+  Visitor visitor(NPCs_, observers_);
+  while (!battleQueue_.empty()) {
+    auto [attackerIndex, defenderIndex] = battleQueue_.front();
+    battleQueue_.pop();
+    visitor.visit(*NPCs_[attackerIndex], *NPCs_[defenderIndex]);
+  }
+}
+
 void Editor::move(const std::string &name, MoveDirection direction) const {
   Visitor visitor(NPCs_, observers_);
   for (size_t i = 0; i != NPCs_.size(); ++i) {

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <memory>
+#include <queue>
 #include "../npc/npc.hpp"
 #include "./factory.hpp"
 #include "./observer.hpp"
@@ -14,6 +15,7 @@ class Editor {
   private:
     std::vector<std::unique_ptr<NPC>> NPCs_;
     std::vector<Observer *> observers_;
+    std::queue<std::pair<size_t, size_t>> battleQueue_;
 
   public:
     Editor();
@@ -27,7 +29,7 @@ class Editor {
     void printNPC(const std::string &name) const;
     void printAreAliveNPCs() const;
     void printNPCs() const;
-    void battle(const std::string &name, double range) const;
+    void detectBattles();
     void move(const std::string &name, MoveDirection direction) const;
     void moveNPCs(std::mt19937 &random);
 };

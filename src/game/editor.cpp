@@ -95,16 +95,16 @@ void Editor::printAreAliveNPCs() const {
   }
 }
 
-void Editor::battle(const std::string &name, double range) const {
-  Visitor visitor(NPCs_, observers_, range);
+void Editor::detectBattles() {
   for (size_t i = 0; i != NPCs_.size(); ++i) {
-    if (NPCs_[i]->getName() == name) {
-      visitor.visit(*NPCs_[i]);
-      return;
+    for (size_t j = i + 1; j != NPCs_.size(); ++j) {
+      if (NPCs_[i]->canKill(*NPCs_[j])) {
+        battleQueue_.push({i, j});
+      } else if (NPCs_[j]->canKill(*NPCs_[i])) {
+        battleQueue_.push({j, i});
+      }
     }
   }
-
-  throw std::invalid_argument("Персонажа с таким именем не существует");
 }
 
 void Editor::move(const std::string &name, MoveDirection direction) const {

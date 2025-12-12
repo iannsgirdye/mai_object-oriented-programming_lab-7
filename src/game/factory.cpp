@@ -12,7 +12,7 @@ std::unique_ptr<NPC> Factory::createNPC(NPCType type) {
 std::unique_ptr<NPC> Factory::createNPC(NPCType type, double x, double y, const std::string &name) {
   if (x < MIN_X || x > MAX_X || y < MIN_Y || y > MAX_Y) {
     char buffer[BUFSIZ];
-    std::sprintf(buffer, "Каждая координата должна быть в диапазоне [%d, %d]", MIN_X, MAX_X);
+    std::sprintf(buffer, "Каждая координата должна быть в диапазоне [%f, %f]", MIN_X, MAX_X);
     throw std::invalid_argument(buffer);
   }
 

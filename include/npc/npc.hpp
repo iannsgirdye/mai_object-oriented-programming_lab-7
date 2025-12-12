@@ -28,11 +28,13 @@ class NPC {
     double y_ = 0;
     std::string name_ = "";
     bool alive_ = true;
+    int moveDistance_ = 1;
+    int attackRange_ = 1;
     
   public:
     NPC();
     NPC(NPCType type);
-    NPC(NPCType type, double x, double y, const std::string &name);
+    NPC(NPCType type, double x, double y, const std::string &name, int moveDistance, int attackRange);
 
     NPCType getType() const;
     std::string getTypeString() const;

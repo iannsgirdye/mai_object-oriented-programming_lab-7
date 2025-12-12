@@ -9,11 +9,13 @@ class Observer {
   public:
     virtual ~Observer() = default;
     virtual void printKill(const NPC &killer, const NPC &victim) = 0;
+    virtual void printMove(const NPC &npc, MoveDirection direction) = 0;
 };
 
 class ScreenObserver: public Observer {
   public:
     void printKill(const NPC &killer, const NPC &victim) override;
+    void printMove(const NPC &npc, MoveDirection direction) override;
 };
 
 class FileObserver: public Observer{
@@ -24,6 +26,7 @@ class FileObserver: public Observer{
     FileObserver();
 
     void printKill(const NPC &killer, const NPC &victim) override;
+    void printMove(const NPC &npc, MoveDirection direction) override;
 
     ~FileObserver();
 };

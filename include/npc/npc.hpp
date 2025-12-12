@@ -57,5 +57,6 @@ class NPC {
 
 NPCType convertTypeFromString(const std::string &type);
 MoveDirection convertDirectionFromString(const std::string &direction);
+std::string convertDirectionToString(MoveDirection direction);
 
 #endif

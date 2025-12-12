@@ -143,3 +143,12 @@ MoveDirection convertDirectionFromString(const std::string &direction) {
   if (direction == "вниз") return MoveDirection::BOTTOM;
   return MoveDirection::LEFT;
 }
+
+std::string convertDirectionToString(MoveDirection direction) {
+  switch (direction) {
+    case MoveDirection::TOP: return "вверх";
+    case MoveDirection::RIGHT: return "вправо";
+    case MoveDirection::BOTTOM: return "вниз";
+    default: return "влево";
+  }
+}

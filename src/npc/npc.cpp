@@ -96,7 +96,7 @@ void NPC::save(std::ofstream &out) const {
       << name_ << " "
       << x_ << " "
       << y_ << " "
-      << isAlive();
+      << isAlive() << "\n";
 }
 
 void NPC::save() const {
@@ -104,7 +104,7 @@ void NPC::save() const {
             << name_ << " "
             << x_ << " "
             << y_ << " "
-            << isAlive();
+            << isAlive() << "\n";
 }
 
 double NPC::distance(const NPC &other) const {

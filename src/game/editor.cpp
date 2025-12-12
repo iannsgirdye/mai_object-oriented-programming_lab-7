@@ -1,5 +1,5 @@
 #include "../../include/game/editor.hpp"
-#include "../values.hpp"
+#include "../../include/values.hpp"
 #include <fstream>
 #include <string>
 #include <random>

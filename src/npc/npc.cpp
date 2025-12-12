@@ -80,6 +80,7 @@ bool NPC::canKill(const NPC &other) const {
       case NPCType::KNIGHT: return (other.type_ == NPCType::DRAGON) ? true : false;
       case NPCType::ELF: return (other.type_ == NPCType::KNIGHT) ? true : false;
       case NPCType::DRAGON: return true;
+      default: return false;
     }
   }
   return false;

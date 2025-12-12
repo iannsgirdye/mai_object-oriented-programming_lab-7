@@ -6,7 +6,7 @@ void ScreenObserver::printKill(const NPC &killer, const NPC &victim) {
 }
 
 void ScreenObserver::printMove(const NPC &npc, MoveDirection direction) {
-  std::cout << npc.getName() << " переместился " << convertDirectionToString(direction);
+  std::cout << npc.getName() << " переместился " << convertDirectionToString(direction) << std::endl;
 }
 
 FileObserver::FileObserver() {
@@ -21,7 +21,7 @@ void FileObserver::printKill(const NPC &killer, const NPC &victim) {
 
 void FileObserver::printMove(const NPC &npc, MoveDirection direction) {
   if (file_.is_open()) {
-    std::cout << npc.getName() << " переместился " << convertDirectionToString(direction);
+    std::cout << npc.getName() << " переместился " << convertDirectionToString(direction) << std::endl;
   }
 }
 

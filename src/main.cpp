@@ -15,7 +15,7 @@ void showMenu() {
   std::cout << "23. Сохранить в файл\n";
   std::cout << "24. Загрузить из файла\n";
   std::cout << "31. Запустить бой\n";
-  std::cout << "32. Переместить персонажа\n";
+  std::cout << "32. Переместить NPC\n";
 }
 
 void modeAddNPC(Editor &editor, std::string type) {

@@ -75,16 +75,14 @@ bool NPC::canKill(const NPC &other) const {
     return false;
   }
 
-  std::array<double, 4> killDistances = {0.0, 10.0, 50.0, 30.0};
-  double thisKillDistance = killDistances[static_cast<int>(getType())];
-  if (distance(other) <= thisKillDistance) {
+  if (distance(other) <= attackRange_) {
     switch (type_) {
       case NPCType::KNIGHT: return (other.type_ == NPCType::DRAGON) ? true : false;
       case NPCType::ELF: return (other.type_ == NPCType::KNIGHT) ? true : false;
       case NPCType::DRAGON: return true;
-      default: return false;
     }
   }
+  return false;
 }
 
 void NPC::load(std::ifstream &in) {

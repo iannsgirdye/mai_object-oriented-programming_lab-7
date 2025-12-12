@@ -136,3 +136,10 @@ NPCType convertTypeFromString(const std::string &type) {
   if (type == "Дракон") return NPCType::DRAGON;
   return NPCType::UNKNOWN;
 }
+
+MoveDirection convertDirectionFromString(const std::string &direction) {
+  if (direction == "вверх") return MoveDirection::TOP;
+  if (direction == "вправо") return MoveDirection::RIGHT;
+  if (direction == "вниз") return MoveDirection::BOTTOM;
+  return MoveDirection::LEFT;
+}

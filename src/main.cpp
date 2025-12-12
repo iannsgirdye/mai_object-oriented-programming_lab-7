@@ -112,13 +112,13 @@ void modeError() {
 
 int main() {
   Editor editor;
-  int mode;
+  int mode = -1;
   
   editor.initBaseNPCs();
   
   showMenu();
 
-  while (true) {
+  while (mode != 0) {
     try {
       std::cout << "\nВыберите действие: ";
       if (!(std::cin >> mode)) {
@@ -136,7 +136,7 @@ int main() {
         case 7: mode7(editor); break;
         case 8: mode8(editor); break;
         case 9: showMenu(); break;
-        case 0: modeExit(); return 0;
+        case 0: modeExit(); break;
         default: modeError(); break;
       }
     } catch (const std::exception& e) {

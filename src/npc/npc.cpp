@@ -49,6 +49,14 @@ void NPC::setAlive(bool alive) {
   alive_ = alive;
 }
 
+int NPC::getMoveDistance() const {
+  return moveDistance_;
+}
+
+int NPC::getAttackRange() const {
+  return attackRange_;
+}
+
 void NPC::move(MoveDirection direction) {
   if (!isAlive()) {
     return;

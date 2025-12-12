@@ -42,6 +42,8 @@ class NPC {
     double getY() const;
     std::string getName() const;
     bool isAlive() const;
+    int getMoveDistance() const;
+    int getAttackRange() const;
 
     void setAlive(bool alive);
     void move(MoveDirection direction);

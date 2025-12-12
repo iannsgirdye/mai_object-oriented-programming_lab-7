@@ -116,3 +116,13 @@ void Editor::move(const std::string &name, MoveDirection direction) const {
     }
   }
 }
+
+void Editor::moveNPCs(std::mt19937 &random) {
+  std::uniform_int_distribution<int> directionDistribution(0, 3);
+
+  Visitor visitor(NPCs_, observers_, 0);
+  for (size_t i = 0; i != NPCs_.size(); ++i) {
+    MoveDirection direction = static_cast<MoveDirection>(directionDistribution(random));
+    visitor.visit(*NPCs_[i], direction);
+  }
+}

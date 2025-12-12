@@ -29,6 +29,7 @@ class Editor {
     void printNPCs() const;
     void battle(const std::string &name, double range) const;
     void move(const std::string &name, MoveDirection direction) const;
+    void moveNPCs(std::mt19937 &random);
 };
 
 #endif

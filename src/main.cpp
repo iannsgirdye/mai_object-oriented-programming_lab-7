@@ -123,12 +123,10 @@ int main() {
   int mode = -1;
   
   editor.initBaseNPCs();
-  
-  showMenu();
 
   while (mode != 0) {
     try {
-      std::cout << "\nВыберите действие: ";
+      std::cout << "\nВыберите действие (10 - меню): ";
       if (!(std::cin >> mode)) {
         std::cerr << "Конец входного потока или ошибка ввода!" << std::endl;
         break;

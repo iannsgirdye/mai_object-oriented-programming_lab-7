@@ -5,17 +5,17 @@
 
 void showMenu() {
   std::cout << "\n===> МЕНЮ <===\n";
-  std::cout << " 1. Добавить Странствующего рыцаря\n";
-  std::cout << " 2. Добавить Эльфа\n";
-  std::cout << " 3. Добавить Дракона\n";
-  std::cout << " 4. Показать конкретный NPC\n";
-  std::cout << " 5. Показать всех NPC\n";
-  std::cout << " 6. Сохранить в файл\n";
-  std::cout << " 7. Загрузить из файла\n";
-  std::cout << " 8. Запустить бой\n";
-  std::cout << " 9. Переместить персонажа\n";
-  std::cout << "10. Показать меню\n";
-  std::cout << " 0. Выход\n";
+  std::cout << "01. Показать меню\n";
+  std::cout << "02. Выход\n";
+  std::cout << "11. Добавить Странствующего рыцаря\n";
+  std::cout << "12. Добавить Эльфа\n";
+  std::cout << "13. Добавить Дракона\n";
+  std::cout << "21. Показать конкретный NPC\n";
+  std::cout << "22. Показать всех NPC\n";
+  std::cout << "23. Сохранить в файл\n";
+  std::cout << "24. Загрузить из файла\n";
+  std::cout << "31. Запустить бой\n";
+  std::cout << "32. Переместить персонажа\n";
 }
 
 void modeAddNPC(Editor &editor, std::string type) {
@@ -95,30 +95,30 @@ void modeError() {
 
 int main() {
   Editor editor;
-  int mode = -1;
+  int mode = 0;
   
   editor.initBaseNPCs();
 
-  while (mode != 0) {
+  while (mode != 2) {
     try {
-      std::cout << "\nВыберите действие (10 - меню): ";
+      std::cout << "\nВыберите действие (01 - меню): ";
       if (!(std::cin >> mode)) {
         std::cerr << "Конец входного потока или ошибка ввода!" << std::endl;
         break;
       }
               
       switch (mode) {
-        case 1: modeAddNPC(editor, "Странствующего рыцаря"); break;
-        case 2: modeAddNPC(editor, "Эльфа"); break;
-        case 3: modeAddNPC(editor, "Дракона"); break;
-        case 4: modePrintNPC(editor); break;
-        case 5: modePrintAllNPC(editor); break;
-        case 6: modeSaveToFile(editor); break;
-        case 7: modeLoadFromFile(editor); break;
-        case 8: modeBattle(editor); break;
-        case 9: modeMove(editor); break;
-        case 10: showMenu(); break;
-        case 0: modeExit(); break;
+        case 1: showMenu(); break;
+        case 2: modeExit(); break;
+        case 11: modeAddNPC(editor, "Странствующего рыцаря"); break;
+        case 12: modeAddNPC(editor, "Эльфа"); break;
+        case 13: modeAddNPC(editor, "Дракона"); break;
+        case 21: modePrintNPC(editor); break;
+        case 22: modePrintAllNPC(editor); break;
+        case 23: modeSaveToFile(editor); break;
+        case 24: modeLoadFromFile(editor); break;
+        case 31: modeBattle(editor); break;
+        case 32: modeMove(editor); break;
         default: modeError(); break;
       }
     } catch (const std::exception& e) {

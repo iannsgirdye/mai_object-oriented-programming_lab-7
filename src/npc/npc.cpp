@@ -62,13 +62,11 @@ void NPC::move(MoveDirection direction) {
     return;
   }
 
-  std::array<double, 4> moveDistances = {0.0, 30.0, 10.0, 50.0};
-  double thisMoveDistance = moveDistances[static_cast<int>(getType())];
   switch (direction) {
-    case MoveDirection::TOP: y_ = std::clamp(MIN_Y, y_ + thisMoveDistance, MAX_Y); break;
-    case MoveDirection::RIGHT: x_ = std::clamp(MIN_X, x_ + thisMoveDistance, MAX_X); break;
-    case MoveDirection::BOTTOM: y_ = std::clamp(MIN_Y, y_ - thisMoveDistance, MAX_Y); break;
-    case MoveDirection::LEFT: x_ = std::clamp(MIN_X, x_ - thisMoveDistance, MAX_X); break;
+    case MoveDirection::TOP: y_ = std::clamp(MIN_Y, y_ + moveDistance_, MAX_Y); break;
+    case MoveDirection::RIGHT: x_ = std::clamp(MIN_X, x_ + moveDistance_, MAX_X); break;
+    case MoveDirection::BOTTOM: y_ = std::clamp(MIN_Y, y_ - moveDistance_, MAX_Y); break;
+    case MoveDirection::LEFT: x_ = std::clamp(MIN_X, x_ - moveDistance_, MAX_X); break;
   }
 }
 

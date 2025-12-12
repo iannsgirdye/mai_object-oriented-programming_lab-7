@@ -60,7 +60,7 @@ void Editor::addNPC(const std::string &type, double x, double y, const std::stri
   addNPC(convertTypeFromString(type), x, y, name);
 }
 
-void Editor::saveToFile(const std::string &fileName) {
+void Editor::saveToFile(const std::string &fileName) const {
   std::ofstream out(fileName);
 
   if (!out.is_open()) {
@@ -78,7 +78,7 @@ void Editor::printNPCs() const {
   }
 }
 
-void Editor::battle(const std::string &name, double range) {
+void Editor::battle(const std::string &name, double range) const {
   Visitor visitor(NPCs_, observers_, range);
   for (size_t i = 0; i != NPCs_.size(); ++i) {
     if (NPCs_[i]->getName() == name) {

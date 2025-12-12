@@ -21,11 +21,11 @@ class Editor {
     
     void initBaseNPCs();
     void loadFromFile(const std::string &fileName);
-    void saveToFile(const std::string &fileName);
+    void saveToFile(const std::string &fileName) const;
     void addNPC(NPCType type, double x, double y, const std::string &name);
     void addNPC(const std::string &type, double x, double y, const std::string &name);
     void printNPCs() const;
-    void battle(const std::string &name, double range);
+    void battle(const std::string &name, double range) const;
     void move(const std::string &name, MoveDirection direction) const;
 };
 

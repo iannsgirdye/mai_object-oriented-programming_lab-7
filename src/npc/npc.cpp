@@ -13,7 +13,7 @@ NPC::NPC(): type_(NPCType::UNKNOWN) {}
 
 NPC::NPC(NPCType type): type_(type) {}
 
-NPC::NPC(NPCType type, double x, double y, const std::string &name, int moveDistance, int attackRange): 
+NPC::NPC(NPCType type, double x, double y, const std::string &name, double moveDistance, double attackRange): 
   type_(type), x_(x), y_(y), name_(name), moveDistance_(moveDistance), attackRange_(attackRange) {}
 
 NPCType NPC::getType() const {

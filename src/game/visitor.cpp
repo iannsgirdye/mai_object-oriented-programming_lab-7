@@ -1,7 +1,7 @@
 #include "../../include/game/visitor.hpp"
 #include <random>
 
-Visitor::Visitor(std::vector<std::unique_ptr<NPC>> &NPCs, std::vector<Observer *> &observers, double range): 
+Visitor::Visitor(const std::vector<std::unique_ptr<NPC>> &NPCs, const std::vector<Observer *> &observers, double range): 
   NPCs_(NPCs), observers_(observers), range_(range) {}
 
 FightResult Visitor::fight(NPC &first, NPC &second) const {

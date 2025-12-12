@@ -33,7 +33,7 @@ void Editor::initBaseNPCs() {
     x = x_dist(gen);
     y = y_dist(gen);
     name = "BaseNPC_" + std::to_string(i + 1);
-    addNPC(type, MIN_X, MIN_Y, name);
+    addNPC(type, x, y, name);
   }
 }
 

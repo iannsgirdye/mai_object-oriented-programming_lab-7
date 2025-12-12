@@ -91,9 +91,10 @@ void Editor::battle(const std::string &name, double range) const {
 }
 
 void Editor::move(const std::string &name, MoveDirection direction) const {
+  Visitor visitor(NPCs_, observers_, 0);
   for (size_t i = 0; i != NPCs_.size(); ++i) {
     if (NPCs_[i]->getName() == name) {
-      NPCs_[i]->move(direction);
+      visitor.visit(*NPCs_[i], direction);
       return;
     }
   }

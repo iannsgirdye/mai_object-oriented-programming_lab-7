@@ -81,7 +81,6 @@ bool NPC::canKill(const NPC &other) const {
     case NPCType::DRAGON: return true;
     default: return false;
   }
-  return false;
 }
 
 void NPC::load(std::ifstream &in) {

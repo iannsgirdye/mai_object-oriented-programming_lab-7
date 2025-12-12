@@ -11,8 +11,9 @@ void showMenu() {
   std::cout << "5. Сохранить в файл\n";
   std::cout << "6. Загрузить из файла\n";
   std::cout << "7. Боевой режим\n";
-  std::cout << "8. Показать меню\n";
-  std::cout << "9. Выход\n";
+  std::cout << "8. Переместить персонажа\n";
+  std::cout << "9. Показать меню\n";
+  std::cout << "0. Выход\n";
 }
 
 void mode1(Editor &editor) {
@@ -91,6 +92,16 @@ void mode7(Editor &editor) {
   editor.battle(name, range);
 }
 
+void mode8(Editor &editor) {
+  std::string name;
+  std::string direction;
+  std::cout << "Имя персонажа: ";
+  std::cin >> name;
+  std::cout << "Направление перемещения (вверх/вправо/вниз/влево): ";
+  std::cin >> direction;
+  editor.move(name, convertDirectionFromString(direction));
+}
+
 void modeExit() {
   std::cout << "Игра окончена!\n";
 }
@@ -123,8 +134,9 @@ int main() {
         case 5: mode5(editor); break;
         case 6: mode6(editor); break;
         case 7: mode7(editor); break;
-        case 8: showMenu(); break;
-        case 9: modeExit(); return 0;
+        case 8: mode8(editor); break;
+        case 9: showMenu(); break;
+        case 0: modeExit(); return 0;
         default: modeError(); break;
       }
     } catch (const std::exception& e) {

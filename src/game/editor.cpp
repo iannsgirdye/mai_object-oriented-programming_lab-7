@@ -72,6 +72,15 @@ void Editor::saveToFile(const std::string &fileName) const {
   }
 }
 
+void Editor::printNPC(const std::string &name) const {
+  for (size_t i = 0; i != NPCs_.size(); ++i) {
+    if (NPCs_[i]->getName() == name) {
+      NPCs_[i]->save();
+      return;
+    }
+  }
+}
+
 void Editor::printNPCs() const {
   for (size_t i = 0; i != NPCs_.size(); ++i) {
     NPCs_[i]->save();

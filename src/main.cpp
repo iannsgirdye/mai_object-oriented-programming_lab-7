@@ -103,6 +103,8 @@ int main() {
   Editor editor;
   int mode;
   
+  editor.initBaseNPCs();
+  
   showMenu();
 
   while (true) {

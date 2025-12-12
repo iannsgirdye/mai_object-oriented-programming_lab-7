@@ -19,15 +19,13 @@ class Visitor {
   private:
     const std::vector<std::unique_ptr<NPC>> &NPCs_;
     const std::vector<Observer *> &observers_;
-    const double range_;
 
-    FightResult fight(NPC &attacker, NPC &defender) const;  
     void notifyKill(NPC &killer, NPC &victin) const;
     void notifyMove(NPC &npc, MoveDirection direction) const;
 
   public:
-    Visitor(const std::vector<std::unique_ptr<NPC>> &NPCs, const std::vector<Observer *> &observers, double range);
-    void visit(NPC &attacker);
+    Visitor(const std::vector<std::unique_ptr<NPC>> &NPCs, const std::vector<Observer *> &observers);
+    void visit(NPC &attacker, NPC &defender);
     void visit(NPC &npc, MoveDirection direction);
 };
 

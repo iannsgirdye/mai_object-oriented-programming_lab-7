@@ -3,6 +3,8 @@
 #include <iostream>
 #include <string>
 
+#define MODE_EXIT 2
+
 void showMenu() {
   std::cout << "\n===> МЕНЮ <===\n";
   std::cout << "01. Показать меню\n";
@@ -99,7 +101,7 @@ int main() {
   
   editor.initBaseNPCs();
 
-  while (mode != 2) {
+  while (mode != MODE_EXIT) {
     try {
       std::cout << "\nВыберите действие (01 - меню): ";
       if (!(std::cin >> mode)) {

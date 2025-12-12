@@ -23,10 +23,12 @@ class Visitor {
 
     FightResult fight(NPC &attacker, NPC &defender) const;  
     void notifyKill(NPC &killer, NPC &victin) const;
+    void notifyMove(NPC &npc, MoveDirection direction) const;
 
   public:
     Visitor(std::vector<std::unique_ptr<NPC>> &NPCs, std::vector<Observer *> &observers, double range);
     void visit(NPC &attacker);
+    void visit(NPC &npc, MoveDirection direction);
 };
 
 #endif

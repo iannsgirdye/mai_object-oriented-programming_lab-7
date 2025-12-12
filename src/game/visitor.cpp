@@ -68,11 +68,25 @@ void Visitor::visit(NPC &attacker) {
   }
 }
 
+void Visitor::visit(NPC &npc, MoveDirection direction) {
+  npc.move(direction);
+  notifyMove(npc, direction);
+}
+
 void Visitor::notifyKill(NPC &killer, NPC &victim) const {
   for (size_t i = 0; i != observers_.size(); ++i) {
     if (observers_[i] == nullptr) {
       throw std::invalid_argument("Нет Observer");
     }
     observers_[i]->printKill(killer, victim);
+  }
+}
+
+void Visitor::notifyMove(NPC &npc, MoveDirection direction) const {
+  for (size_t i = 0; i != observers_.size(); ++i) {
+    if (observers_[i] == nullptr) {
+      throw std::invalid_argument("Нет Observer");
+    }
+    observers_[i]->printMove(npc, direction);
   }
 }

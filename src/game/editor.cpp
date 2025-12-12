@@ -87,6 +87,14 @@ void Editor::printNPCs() const {
   }
 }
 
+void Editor::printAreAliveNPCs() const {
+  for (size_t i = 0; i != NPCs_.size(); ++i) {
+    if (NPCs_[i]->isAlive()) {
+      NPCs_[i]->save();
+    }
+  }
+}
+
 void Editor::battle(const std::string &name, double range) const {
   Visitor visitor(NPCs_, observers_, range);
   for (size_t i = 0; i != NPCs_.size(); ++i) {

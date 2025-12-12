@@ -17,7 +17,7 @@ void showMenu() {
   std::cout << " 0. Выход\n";
 }
 
-void mode1(Editor &editor) {
+void modeAddKnight(Editor &editor) {
   std::string type = "Странствующий рыцарь";
   std::string name;
   double x;
@@ -33,7 +33,7 @@ void mode1(Editor &editor) {
   editor.addNPC(type, x, y, name);
 }
 
-void mode2(Editor &editor) {
+void modeAddElf(Editor &editor) {
   std::string type = "Эльф";
   std::string name;
   double x;
@@ -49,7 +49,7 @@ void mode2(Editor &editor) {
   editor.addNPC(type, x, y, name);
 }
 
-void mode3(Editor &editor) {
+void modeAddDragon(Editor &editor) {
   std::string type = "Дракон";
   std::string name;
   double x;
@@ -65,32 +65,32 @@ void mode3(Editor &editor) {
   editor.addNPC(type, x, y, name);
 }
 
-void mode4(Editor &editor) {
+void modePrintNPC(Editor &editor) {
   std::string name;
   std::cout << "Имя персонажа: ";
   std::cin >> name;
   editor.printNPC(name);
 }
 
-void mode5(Editor &editor) {
+void modePrintAllNPC(Editor &editor) {
   editor.printNPCs();
 }
 
-void mode6(Editor &editor) {
+void modeSaveToFile(Editor &editor) {
   std::string filename;
   std::cout << "Имя файла для сохранения: ";
   std::cin >> filename;
   editor.saveToFile(filename);
 }
 
-void mode7(Editor &editor) {
+void modeLoadFromFile(Editor &editor) {
   std::string filename;
   std::cout << "Имя файла для загрузки: ";
   std::cin >> filename;
   editor.loadFromFile(filename);
 }
 
-void mode8(Editor &editor) {
+void modeBattle(Editor &editor) {
   std::string name;
   double range;
   std::cout << "Имя персонажа: ";
@@ -100,7 +100,7 @@ void mode8(Editor &editor) {
   editor.battle(name, range);
 }
 
-void mode9(Editor &editor) {
+void modeMove(Editor &editor) {
   std::string name;
   std::string direction;
   std::cout << "Имя персонажа: ";
@@ -135,15 +135,15 @@ int main() {
       }
               
       switch (mode) {
-        case 1: mode1(editor); break;
-        case 2: mode2(editor); break;
-        case 3: mode3(editor); break;
-        case 4: mode4(editor); break;
-        case 5: mode5(editor); break;
-        case 6: mode6(editor); break;
-        case 7: mode7(editor); break;
-        case 8: mode8(editor); break;
-        case 9: mode9(editor); break;
+        case 1: modeAddKnight(editor); break;
+        case 2: modeAddElf(editor); break;
+        case 3: modeAddDragon(editor); break;
+        case 4: modePrintNPC(editor); break;
+        case 5: modePrintAllNPC(editor); break;
+        case 6: modeSaveToFile(editor); break;
+        case 7: modeLoadFromFile(editor); break;
+        case 8: modeBattle(editor); break;
+        case 9: modeMove(editor); break;
         case 10: showMenu(); break;
         case 0: modeExit(); break;
         default: modeError(); break;

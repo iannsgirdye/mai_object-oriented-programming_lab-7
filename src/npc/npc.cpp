@@ -24,8 +24,8 @@ std::string NPC::getTypeString() const {
     case NPCType::KNIGHT: return "Странствующий рыцарь";
     case NPCType::ELF: return "Эльф";
     case NPCType::DRAGON: return "Дракон";
+    default: return "Неизвестный";
   }
-  return "Неизвестный";
 }
 
 double NPC::getX() const {
@@ -75,6 +75,7 @@ bool NPC::canKill(const NPC &other) const {
       case NPCType::KNIGHT: return (other.type_ == NPCType::DRAGON) ? true : false;
       case NPCType::ELF: return (other.type_ == NPCType::KNIGHT) ? true : false;
       case NPCType::DRAGON: return true;
+      default: return false;
     }
   }
   return false;

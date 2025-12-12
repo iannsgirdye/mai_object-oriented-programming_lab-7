@@ -22,15 +22,19 @@ class Editor {
     ~Editor();
     
     void initBaseNPCs();
+
     void loadFromFile(const std::string &fileName);
     void saveToFile(const std::string &fileName) const;
+    void printNPC(const std::string &name) const;
+    void printNPCs() const;
+    void printAreAliveNPCs() const;
+
     void addNPC(NPCType type, double x, double y, const std::string &name);
     void addNPC(const std::string &type, double x, double y, const std::string &name);
-    void printNPC(const std::string &name) const;
-    void printAreAliveNPCs() const;
-    void printNPCs() const;
+
     void detectBattles();
     void processBattles();
+    
     void move(const std::string &name, MoveDirection direction) const;
     void moveNPCs(std::mt19937 &random);
 };

@@ -63,10 +63,10 @@ void NPC::move(MoveDirection direction) {
   }
 
   switch (direction) {
-    case MoveDirection::TOP: y_ = std::clamp(MIN_Y, y_ + moveDistance_, MAX_Y); break;
-    case MoveDirection::RIGHT: x_ = std::clamp(MIN_X, x_ + moveDistance_, MAX_X); break;
-    case MoveDirection::BOTTOM: y_ = std::clamp(MIN_Y, y_ - moveDistance_, MAX_Y); break;
-    case MoveDirection::LEFT: x_ = std::clamp(MIN_X, x_ - moveDistance_, MAX_X); break;
+    case MoveDirection::TOP: y_ = std::clamp(y_ + moveDistance_, MIN_Y, MAX_Y); break;
+    case MoveDirection::RIGHT: x_ = std::clamp(x_ + moveDistance_, MIN_X, MAX_X); break;
+    case MoveDirection::BOTTOM: y_ = std::clamp(y_ - moveDistance_, MIN_Y, MAX_Y); break;
+    case MoveDirection::LEFT: x_ = std::clamp(x_ - moveDistance_, MIN_X, MAX_X); break;
   }
 }
 

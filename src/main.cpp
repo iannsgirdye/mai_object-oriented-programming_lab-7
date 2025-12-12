@@ -1,4 +1,5 @@
 #include "../include/game/editor.hpp"
+#include "../include/values.hpp"
 #include <iostream>
 #include <string>
 
@@ -17,51 +18,25 @@ void showMenu() {
   std::cout << " 0. Выход\n";
 }
 
-void modeAddKnight(Editor &editor) {
-  std::string type = "Странствующий рыцарь";
+void modeAddNPC(Editor &editor, std::string type) {
   std::string name;
   double x;
   double y;
+  char buffer[BUFSIZ];
 
-  std::cout << "Имя Странствующего рыцаря: ";
+  std::cout << "Имя ";
+  std::cout << type;
+  std::cout << ": ";
   std::cin >> name;
-  std::cout << "Координата x [0; 500]: ";
+
+  std::sprintf(buffer, "Координата x [%f, %f]", MIN_X, MAX_X);
+  std::cout << buffer;
   std::cin >> x;
-  std::cout << "Координата y [0; 500]: ";
+
+  std::sprintf(buffer, "Координата y [%f, %f]", MIN_Y, MAX_Y);
+  std::cout << buffer;
   std::cin >> y;
-  
-  editor.addNPC(type, x, y, name);
-}
 
-void modeAddElf(Editor &editor) {
-  std::string type = "Эльф";
-  std::string name;
-  double x;
-  double y;
-
-  std::cout << "Имя Эльфа: ";
-  std::cin >> name;
-  std::cout << "Координата x [0; 500]: ";
-  std::cin >> x;
-  std::cout << "Координата y [0; 500]: ";
-  std::cin >> y;
-  
-  editor.addNPC(type, x, y, name);
-}
-
-void modeAddDragon(Editor &editor) {
-  std::string type = "Дракон";
-  std::string name;
-  double x;
-  double y;
-
-  std::cout << "Имя Дракона: ";
-  std::cin >> name;
-  std::cout << "Координата x [0; 500]: ";
-  std::cin >> x;
-  std::cout << "Координата y [0; 500]: ";
-  std::cin >> y;
-  
   editor.addNPC(type, x, y, name);
 }
 
@@ -133,9 +108,9 @@ int main() {
       }
               
       switch (mode) {
-        case 1: modeAddKnight(editor); break;
-        case 2: modeAddElf(editor); break;
-        case 3: modeAddDragon(editor); break;
+        case 1: modeAddNPC(editor, "Странствующего рыцаря"); break;
+        case 2: modeAddNPC(editor, "Эльфа"); break;
+        case 3: modeAddNPC(editor, "Дракона"); break;
         case 4: modePrintNPC(editor); break;
         case 5: modePrintAllNPC(editor); break;
         case 6: modeSaveToFile(editor); break;
